@@ -1,7 +1,7 @@
-module_goes_here
+codespell_update
 =========
 
 .. toctree::
    :maxdepth: 4
 
-   module_goes_here
+   codespell_update

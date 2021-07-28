@@ -1,1 +1,1 @@
-3Amigos Python GitHub Template
+Work out potential codespell updates by considering most popular merged typo PRs

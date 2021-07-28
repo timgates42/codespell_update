@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-`setuptools` Distribution for module_goes_here
+`setuptools` Distribution for codespell_update
 """
 
 # System  Imports
@@ -12,10 +12,10 @@ import re
 # External Imports
 from setuptools import find_packages, setup
 
-PACKAGE_NAME = "module_goes_here"
-URL = "https://github.com/3amigos-dev/3amigos-py"
-GITHUB_ORG = "3amigos-dev"
-GITHUB_REPO = "3amigos-py"
+PACKAGE_NAME = "codespell_update"
+URL = "https://github.com/timgates42/codespell_update"
+GITHUB_ORG = "timgates42"
+GITHUB_REPO = "codespell_update"
 RE_SUB = "(https://github.com/%s/%s/blob/master/\\g<1>)" % (GITHUB_ORG, GITHUB_REPO)
 
 
@@ -52,10 +52,10 @@ def read_version():
 setup(
     name=PACKAGE_NAME,
     version=read_version(),
-    author="name_goes_here",
-    author_email="email@goes.here",
-    maintainer="name_goes_here",
-    maintainer_email="email@goes.here",
+    author="Tim Gates",
+    author_email="tim.gates@iress.com",
+    maintainer="Tim Gates",
+    maintainer_email="tim.gates@iress.com",
     packages=find_packages(exclude=["tests"]),
     license="GPLv3+",
     description=load_include("short_description.txt")
