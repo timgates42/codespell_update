@@ -8,6 +8,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import click
 
+from .update import run_update
+
 CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 
 __version__ = "0.1"
@@ -36,12 +38,7 @@ def run_invocation():
     """
     Execute the invocation
     """
-    print(
-        """\
-For more information view the online documentation at:
-https://codespell_update.readthedocs.io/en/latest/
-"""
-    )
+    run_update()
 
 
 if __name__ == "__main__":
