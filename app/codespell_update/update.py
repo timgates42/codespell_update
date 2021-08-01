@@ -52,12 +52,17 @@ def run_update():
     """
     Scan closed PRs to work out common spelling errors
     """
-    regex = re.compile("Should read `[^`]+` rather than `([^`]+)`")
-    title_re = re.compile("fix simple typo, [^-]+ -> (.*)$")
+    ignores = set()
+    with open(get_basedir() / "ignores.txt") as fobj:
+        ignores.update(line.strip() for line in fobj)
+    regex = re.compile("Should read `[^`]+` rather than `([^`]+)`" , re.M | re.I)
+    title_re = re.compile("fix .* typo. [^-]+ -> (.*)$", re.I)
     for pull in get_pulls(get_api()):
-        matches = regex.findall(pull.body, re.M)
+        matches = regex.findall(pull.body)
         if not matches:
             matches = title_re.findall(pull.title)
+        if not matches and any(ignore in pull.body for ignore in ignores):
+            continue
         print(repr(matches))
         if not matches:
             print(f"Failed {pull!r} {pull.base.repo.full_name} {pull.body}")
